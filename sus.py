@@ -196,24 +196,8 @@ def RunCalculator(scale):
     print(".")
     print(".")
     print(".")
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
-    log+="."
     print("********************Results************************")
-    log+="********************Results************************"
+    log+="\n\n********************Results************************\n"
     print("Grand Total:",_total)
     log+="Grand Total: "+format(_total)+"\n"
     print("Overall Grade:",_grade)
@@ -235,14 +219,11 @@ def RunCalculator(scale):
 
 
 print('Welcome to the System Usability Scale (SuS) Calculator!')
-testName = input("What is the name of your test?")
+testName = input("What is the name of your test? ")
 log = RunCalculator(int(input("How many users are in your test group? ")))
 logdate = datetime.datetime.now()
-filename = 'SuSResults: '
-filename+=testName
-filename+=' @ '
-filename+=format(logdate)[0:9]
-filename+='.txt'
+filename = ''.join(["SuSResults ", format(testName),".txt"])
+print(filename+" has been created!")
 file = open(filename, 'w')
 file.write(log)
 file.close()
